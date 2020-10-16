@@ -73,7 +73,7 @@
 | municipality   | string     | null: false                       |
 | building_name  | string     | none                              |
 | details        | string     | null: false                       |
-| tel            | integer    | null: false                       |
+| tel            | string     | null: false                       |
 | purchase       | references | null: false, foreign_key: true    |
 
 ### Association
