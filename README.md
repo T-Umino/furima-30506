@@ -7,6 +7,8 @@
 | password       | string     | null: false |
 | last_name      | string     | null: false |
 | first_name     | string     | null: false |
+| last_name_kana | string     | null: false |
+| first_name_kana| string     | null: false |
 | birth_year_id  | integer    | null: false |
 | birth_month_id | integer    | null: false |
 | birth_day_id   | integer    | null: false |
@@ -21,14 +23,15 @@
 
 ## itemsテーブル
 
-| Column       | Type    | Options     |
-| ------------ | ------- | ----------- |
-| name         | string  | null: false |
-| description  | text    | null: false |
-| category_id  | integer | null: false |
-| condition_id | integer | null: false |
-| duration_id  | integer | null: false |
-| price        | integer | null: false |
+| Column       | Type       | Options                        |
+| ------------ | ---------- | ------------------------------ |
+| name         | string     | null: false                    |
+| description  | text       | null: false                    |
+| category_id  | integer    | null: false                    |
+| condition_id | integer    | null: false                    |
+| duration_id  | integer    | null: false                    |
+| user_id      | references | null: false, foreign_key: true |
+| price        | integer    | null: false                    |
 
 ### Association
 - belongs_to :user
