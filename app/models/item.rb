@@ -3,11 +3,11 @@ class Item < ApplicationRecord
   belongs_to :user
   has_one_attached :image
   has_many :comments
-  has_one_active_hash :category
-  has_one_active_hash :condition
-  has_one_active_hash :duration
-  has_one_active_hash :ship_fee
-  has_one_active_hash :ship_source
+  belongs_to_active_hash :category
+  belongs_to_active_hash :condition
+  belongs_to_active_hash :duration
+  belongs_to_active_hash :ship_fee
+  belongs_to_active_hash :ship_source
   has_one :purchase
 
   validates :image, :name, :description, :category, :condition, :duration, :ship_fee, :ship_source, presence: true

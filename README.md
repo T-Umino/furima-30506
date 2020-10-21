@@ -33,11 +33,11 @@
 ### Association
 - belongs_to :user
 - has_many :comments
-- has_one_active_hash :category
-- has_one_active_hash :condition
-- has_one_active_hash :duration
-- has_one_active_hash :ship_fee
-- has_one_active_hash :ship_source
+- belongs_to_active_hash :category
+- belongs_to_active_hash :condition
+- belongs_to_active_hash :duration
+- belongs_to_active_hash :ship_fee
+- belongs_to_active_hash :ship_source
 - has_one :purchase
 
 ## commentsテーブル
@@ -77,4 +77,5 @@
 | purchase       | references | null: false, foreign_key: true    |
 
 ### Association
+- belongs_to_active_hash: prefecture
 - belongs_to :purchase
