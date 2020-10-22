@@ -18,26 +18,26 @@
 
 ## itemsテーブル
 
-| Column         | Type       | Options                        |
-| -------------- | ---------- | ------------------------------ |
-| name           | string     | null: false                    |
-| description    | text       | null: false                    |
-| category_id    | integer    | null: false                    |
-| condition_id   | integer    | null: false                    |
-| duration_id    | integer    | null: false                    |
-| ship_fee_id    | integer    | null: false                    |
-| ship_source_id | integer    | null: false                    |
-| user           | references | null: false, foreign_key: true |
-| price          | integer    | null: false                    |
+| Column             | Type       | Options                        |
+| ------------------ | ---------- | ------------------------------ |
+| name               | string     | null: false                    |
+| description        | text       | null: false                    |
+| category_id        | integer    | null: false                    |
+| condition_id       | integer    | null: false                    |
+| duration_id        | integer    | null: false                    |
+| shipping_fee_id    | integer    | null: false                    |
+| prefecture_id      | integer    | null: false                    |
+| user               | references | null: false, foreign_key: true |
+| price              | integer    | null: false                    |
 
 ### Association
 - belongs_to :user
 - has_many :comments
-- has_one_active_hash :category
-- has_one_active_hash :condition
-- has_one_active_hash :duration
-- has_one_active_hash :ship_fee
-- has_one_active_hash :ship_source
+- belongs_to_active_hash :category
+- belongs_to_active_hash :condition
+- belongs_to_active_hash :duration
+- belongs_to_active_hash :shipping_fee
+- belongs_to_active_hash :prefecture
 - has_one :purchase
 
 ## commentsテーブル
@@ -77,4 +77,5 @@
 | purchase       | references | null: false, foreign_key: true    |
 
 ### Association
+- belongs_to_active_hash: prefecture
 - belongs_to :purchase
