@@ -11,5 +11,3 @@
   
  
 setInterval(input, 1000)
- 
-
