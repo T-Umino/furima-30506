@@ -24,14 +24,14 @@ RSpec.describe Order, type: :model do
         expect(@order.errors.full_messages).to include("Postal code can't be blank")
       end
       it '郵便番号にハイフンがないと保存できない' do
-        @order.postal_code = "0000000"
+        @order.postal_code = '0000000'
         @order.valid?
-        expect(@order.errors.full_messages).to include("Postal code is invalid. Include hyphen(-).")
+        expect(@order.errors.full_messages).to include('Postal code is invalid. Include hyphen(-).')
       end
       it '都道府県が選択されていないと保存できない' do
         @order.prefecture_id = nil
         @order.valid?
-        expect(@order.errors.full_messages).to include("Prefecture select")
+        expect(@order.errors.full_messages).to include('Prefecture select')
       end
       it '市区町村が空だと保存できない' do
         @order.municipality = nil
@@ -49,9 +49,9 @@ RSpec.describe Order, type: :model do
         expect(@order.errors.full_messages).to include("Tel can't be blank")
       end
       it '電話番号が11桁以内でなければ保存できない' do
-        @order.tel = "0120-00-000"
+        @order.tel = '0120-00-000'
         @order.valid?
-        expect(@order.errors.full_messages).to include("Tel is invalid. Input half-width numbers.")
+        expect(@order.errors.full_messages).to include('Tel is invalid. Input half-width numbers.')
       end
     end
   end
