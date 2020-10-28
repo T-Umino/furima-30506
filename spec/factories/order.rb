@@ -1,5 +1,6 @@
 FactoryBot.define do
   factory :order do
+    token               { Faker::Lorem.sentence }
     postal_code         { "000-0000" }
     prefecture_id       { Faker::Number.between(from: 1, to: 47) }
     municipality        { Faker::Lorem.words(number: 1) }

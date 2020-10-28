@@ -13,6 +13,11 @@ RSpec.describe Order, type: :model do
     end
 
     context '購入情報をが保存できないとき' do
+      it 'クレジットカード情報（token）が空では登録できない' do
+        @order.token = nil
+        @order.valid?
+        expect(@order.errors.full_messages).to include("Token can't be blank")
+      end
       it '郵便番号が空では保存できない' do
         @order.postal_code = nil
         @order.valid?
