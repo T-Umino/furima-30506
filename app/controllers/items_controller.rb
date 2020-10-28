@@ -25,6 +25,7 @@ class ItemsController < ApplicationController
   end
 
   def edit
+    move_to_root
   end
 
   def update
@@ -37,6 +38,7 @@ class ItemsController < ApplicationController
   end
 
   def destroy
+    move_to_root
     @item.destroy
     redirect_to root_path
   end
@@ -53,5 +55,9 @@ class ItemsController < ApplicationController
 
   def move_to_index
     redirect_to action: :index unless user_signed_in? && current_user.id === @item.user_id
+  end
+
+  def move_to_root
+    redirect_to root_path if @item.purchase.present?
   end
 end
