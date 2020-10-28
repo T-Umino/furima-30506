@@ -13,7 +13,7 @@ class PurchasesController < ApplicationController
     @order = Order.new(order_params)
     if @order.valid?
       @order.save
-      redirect_to item_path(@item.id)
+      redirect_to root_path
     else
       render action: :index
     end
