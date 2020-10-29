@@ -10,6 +10,10 @@ RSpec.describe Order, type: :model do
       it 'すべての項目が正しく入力されていれば購入情報を保存できる' do
         expect(@order).to be_valid
       end
+      it '建物名が空でも保存できる' do
+        @order.building_name = nil
+        expect(@order).to be_valid
+      end
     end
 
     context '購入情報をが保存できないとき' do
@@ -29,7 +33,7 @@ RSpec.describe Order, type: :model do
         expect(@order.errors.full_messages).to include('Postal code is invalid. Include hyphen(-).')
       end
       it '都道府県が選択されていないと保存できない' do
-        @order.prefecture_id = nil
+        @order.prefecture_id = '0'
         @order.valid?
         expect(@order.errors.full_messages).to include('Prefecture select')
       end
