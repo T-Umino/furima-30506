@@ -8,8 +8,7 @@ class Order
     validates :prefecture_id, numericality: { other_than: 0, message: 'select' }
     validates :municipality
     validates :details
-    validates :tel, format: { with: /\A[0-9]+\z/, message: 'is invalid. Input half-width numbers.' }
-    validates :tel, length: { maximum: 11 }
+    validates :tel, format: { with: /\A[0-9]+\z/, message: 'is invalid. Input half-width numbers.' }, length: { maximum: 11 }
   end
 
   def save
